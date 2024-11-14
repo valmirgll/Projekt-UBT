@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    
+}
+
+
+.header {
+    background-color: black;
+    color:  grey;
+    padding: 1rem;
+    
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+.nav a:hover {
+    color: orange;
+}
+
+
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.hero-content .btn {
+    background: #ff6200;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.hero-content .btn:hover {
+    background: #333;
+}
+
+
+.products {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+.products h2 {
+    margin-bottom: 1.5rem;
+}
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.product-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+}
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+.product-card h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+}
+.product-card span {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #ff6200;
+}
+
+
+.about {
+    padding: 2rem 1rem;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
