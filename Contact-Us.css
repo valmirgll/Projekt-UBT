@@ -17,6 +17,31 @@
         h2{
             font-size: 20px;
         }
+ 
+        .back a {
+          display: inline-block;
+          position: absolute;
+            left: 5px;
+            top: 5px;
+          padding: 0.8rem 1.5rem;
+          background-color: #ff6200; 
+          color: white; 
+          text-decoration: none; 
+          font-weight: bold;
+          border-radius: 5px; 
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+          transition: background-color 0.3s, transform 0.2s; 
+        }
+        
+        .back a:hover {
+          background-color: #333;
+          color: orange; 
+          transform: scale(1.05); 
+        }
+        
+        .back a:active {
+          transform: scale(0.95); 
+        }
         .contact-items{
             display: flex;
             margin: 30px auto;
@@ -54,7 +79,7 @@
         p{
             font-size: 15px;
         }
-        button{
+        .container button {
             padding: 8px 16px;
             font-size: 17px;
             border-radius: 25px;
@@ -63,7 +88,7 @@
             cursor: pointer;
             color: rgb(255, 255, 255);
         }
-        button:hover{
+        .container button:hover{
             color: gray;
         }
         #cust-care{

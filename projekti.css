@@ -19,6 +19,34 @@ body {
     padding: 1rem;
     
 }
+
+.back {
+    position: sticky;
+    left: 5px;
+    top: 5px;
+}
+.back a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #ff6200; 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold;
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.back a:hover {
+    background-color: #333;
+    color: orange; 
+    transform: scale(1.05); 
+}
+
+.back a:active {
+    transform: scale(0.95); 
+}
+
 .header .container {
     display: flex;
     justify-content: space-between;

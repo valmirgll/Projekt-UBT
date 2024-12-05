@@ -15,6 +15,33 @@
     background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
   }
   
+.back {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.back a {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #ff6200; 
+  color: white; 
+  text-decoration: none; 
+  font-weight: bold;
+  border-radius: 5px; 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s, transform 0.2s; 
+}
+
+.back a:hover {
+  background-color: #333;
+  color: orange; 
+  transform: scale(1.05); 
+}
+
+.back a:active {
+  transform: scale(0.95); 
+}
+
   body::before {
     content: "";
     position: absolute;
@@ -38,6 +65,7 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
     transition: all 0.3s ease;
     opacity: 1;
+    margin: auto;
   }
   
   .wrapper:hover {
@@ -59,7 +87,7 @@
 .wrapper a:hover {
 text-decoration: underline;
 }
- button {
+ .wrapper button {
 background-color: #271930;
 color: #ffffff;
 font-weight: 600;
