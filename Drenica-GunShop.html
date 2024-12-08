@@ -30,10 +30,18 @@
             <h2>Quality Firearms, Unmatched Service</h2>
             <p>Best shop for all firearm needs.</p>
             <p>Discover a variety of guns, shotguns, pistols & rifles from top brands like Sig Sauer, Beretta, Smith & Wesson & more.You must be +21 years old and have an available license to buy a gun from us, for more come and visit our shop and you will have a great time.   </p>
-            <a href="#products" class="btn">Search Products</a>
+            
         </div>
     </section>
-
+    <form class="search-form" action="Products.html">
+        <input 
+            type="text" 
+            id="searchInput" 
+            name="query" 
+            placeholder="Search for products..." 
+            class="search-input">
+        <button type="submit" class="btn">Search Products</button>
+    </form>
    
 
    
@@ -42,5 +50,14 @@
         <p>&copy; 2024 Drenica Gun Shop. All rights reserved.</p>
         <p>Contact us: info@drenicagunshop.com | (+383) 49 163040</p>
     </footer>
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            const searchInput = document.getElementById('searchInput').value.trim();
+            if (!searchInput) {
+                e.preventDefault();
+                alert("Please enter a product name to search.");
+            }
+        });
+    </script>
 </body>
 </html>
