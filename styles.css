@@ -13,6 +13,7 @@ body {
   align-items: flex-start;
   padding: 50px;
   background: url(backgrounda.jpg) no-repeat center center/cover;
+  min-height: 100vh;
 }
 
 
@@ -82,3 +83,25 @@ body {
   font-size: 16px;
   color: #ddd;
 }
+.back-button-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.back-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; 
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #e67e00;
+}
+
