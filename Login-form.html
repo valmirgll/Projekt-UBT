@@ -9,14 +9,14 @@
 <body>
     <button class="back"><a href="Drenica-GunShop.html">Home</a></button>
       <section class="wrapper">
-          <form action="#">
+          <form action="#" id = "loginForm">
             <h2>Login Form</h2>
             <div class="input-field">
-              <input type="text" required>
+              <input type="text" id = "email" required>
               <label>Enter your email</label>
             </div>
             <div class="input-field">
-              <input type="password" required>
+              <input type="password" id = "password" required>
               <label>Enter your password</label>
             </div>
             <div class="forget">
@@ -26,12 +26,37 @@
               </label>
               <a href="#">Forgot password?</a>
             </div>
+            <div id="errorMessages" style="color: red;"></div>
             <button type="submit">Log In</button>
             <div class="register">
               <p>Don't have an account? <a href="Register-Form.html">Register</a></p>
             </div>
           </form> 
     </section>
+    <script>
+      document.getElementById("loginForm").addEventListener("submit", function(event) {
+          event.preventDefault(); 
+
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const errorMessages = document.getElementById("errorMessages");
+
+          errorMessages.innerHTML = "";
+
+          if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1 || email.startsWith('@') || email.endsWith('.')) {
+          errorMessages.innerHTML = "Please enter a valid email.";
+          return;
+}
+
+
+          if (!password || password.length < 6) {
+              errorMessages.innerHTML = "Password must be at least 6 characters.";
+              return;
+          }
+          alert("Login successful!");
+      });
+  </script>  
+   
     
 </body>
 </html>
