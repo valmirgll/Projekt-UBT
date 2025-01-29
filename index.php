@@ -51,7 +51,7 @@ $page->renderHeader();
         </div>
         <nav class="nav">
             <a href="Projekti.html">Home</a>
-            <a href="Products.html">Products</a>
+            <a href="products.php">Products</a>
             <a href="About-Us.html">About Us</a>
             <a href="Contact-Us.html">Contact</a>
             <a href="Login-form.html">Login <img src="login1.png" style="height: 20px;"></a>
