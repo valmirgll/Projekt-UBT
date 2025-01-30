@@ -7,37 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="register.php" method="POST">
-    <div class="wrapper" >
-          <h2>Register Form</h2>
-          <div  id = "name-surname"  style="border: none">
+  <form action="register.php" method="POST">
+    <button class="back"><a href="index.php">Home</a></button>
+    <div class="wrapper">
+        <h2>Register Form</h2>
+        <div id="name-surname" style="border: none">
             <div class="input-field" style="margin-bottom: 0px;">
-                <input type="text" required>
+                <input type="text" name="name" required>
                 <label>Name</label>
             </div>
             <div class="input-field" style="margin-bottom: 0px;">
-                <input type="text" required>
+                <input type="text" name="surname" required>
                 <label>Surname</label>
             </div>
-          </div>
-          <div class="input-field">
-            <input type="text" required>
+        </div>
+        <div class="input-field">
+            <input type="text" name="email" required>
             <label>Enter your email</label>
-          </div>
-          <div class="input-field">
-            <input type="password" required>
+        </div>
+        <div class="input-field">
+            <input type="password" name="password" required>
             <label>Enter your password</label>
-          </div>
-          <div class="input-field">
-            <input type="confirm-password" required>
+        </div>
+        <div class="input-field">
+            <input type="password" name="confirm-password" required>
             <label>Confirm your password</label>
-          </div>
-          <button type="submit">Register</button>
-          <div class="register">
-            <p>You have an account? <a href="Login-form.html">Sign in</a></p>
-          </div>
-        </form>
-      </div>
-    
+        </div>
+        <button type="submit">Register</button>
+        <div class="register">
+            <p>You have an account? <a href="Krijimi i Login-form.php">Sign in</a></p>
+        </div>
+    </div>
+  </form>
 </body>
 </html>
