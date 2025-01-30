@@ -4,36 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Contact-Us.css">
-    <title>Document</title>
-
+    <title>Contact Us</title>
 </head>
 <body>
-    <button class="back"><a href="Drenica-GunShop.html">Home</a></button>
+    <button class="back"><a href="index.php">Home</a></button>
     <div class="container">
         <h1>Contact Us</h1>
         <hr>
         <h2>Have any questions? We'd love to hear from you</h2>
         <p>Contact us: <a href="mailto:info@drenicagunshop.com" style="color: whitesmoke;">info@drenicagunshop.com</a> | (+383) 49 163040</p>
-        <div class="contact-items">
-            <div class="customer-care">
-                <h3>Customer Care</h3>
-                <p>Feel free to contact us for everything </p>
-                <button id="cust-care"> Submit a Request</button>
-                <a href="https://workspace.google.com/intl/en-US/gmail/"> Frequently asked Questions</a>
-            </div>
-            <div class="write-us">
-                <h3>Write Us</h3>
-                <p> You can write us if you have any queries</p>
-               <a href="https://workspace.google.com/intl/en-US/gmail/"> <button id="write">Write</button></a>
-         
-            </div>
-            <div class="sales-market">
-                <h3> Sales and Marketing</h3>
-                <p>Get in touch with our sales and marketing team</p>
-                <button id="sales">Contact Sales</button>
-                <a href="https://workspace.google.com/intl/en-US/gmail/">View Plans</a>
-
-            </div>
+        
+        <hr>
+        <div class="contact-form">
+            <h3 style="color: orange;">Send Us a Message</h3>
+            <form action="submit_contact.php" method="post" enctype="multipart/form-data">
+                <label for="name" style="color: orange;">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email" style="color: orange;">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message" style="color: orange;">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <label for="photo" style="color: orange;">Attach Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+                <button type="submit" style="background-color: orange;">Submit</button>
+            </form>
         </div>
     </div>
 </body>
