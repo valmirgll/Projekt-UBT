@@ -14,7 +14,7 @@ class User {
         $stmt->bind_param("ssss", $name, $surname, $email, $hashedPassword);
 
         if ($stmt->execute()) {
-            return "Registration successful! You can now <a href='Login-form.html'>log in</a>.";
+            return "Registration successful! You can now <a href='Krijimi i Login-form.php'>log in</a>.";
         } else {
             return "Error: " . $stmt->error;
         }
@@ -26,11 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $surname = trim($_POST['surname']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
+    $confirmPassword = trim($_POST['confirm-password']);
 
-    if (empty($name) || empty($surname) || empty($email) || empty($password)) {
+    if (empty($name) || empty($surname) || empty($email) || empty($password) || empty($confirmPassword)) {
         echo "All fields are required!";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email format!";
+    } elseif ($password !== $confirmPassword) {
+        echo "Passwords do not match!";
     } elseif (strlen($password) < 6) {
         echo "Password must be at least 6 characters!";
     } else {
