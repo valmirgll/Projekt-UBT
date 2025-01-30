@@ -23,7 +23,7 @@ class Page {
         foreach ($this->stylesheets as $stylesheet) {
             echo "<link rel='stylesheet' href='{$stylesheet}'>\n";
         }
-        echo "</head>\n<body style='background-image: url(backgournd.jpg);'>\n";
+        echo "</head>\n<body>\n"; 
     }
     
     public function renderFooter() {
@@ -73,13 +73,20 @@ $page->renderHeader();
 </form>
 
 <script>
-document.querySelector('.search-form').addEventListener('submit', function(e) {
-    const searchInput = document.getElementById('searchInput').value.trim();
-    if (!searchInput) {
-        e.preventDefault();
-        alert("Please enter a product name to search.");
+    const images = [
+        "backgournd.jpg",
+        "background2.jpg",
+        "background3.jpg"
+    ]; 
+
+    let index = 0;
+    function changeBackground() {
+        document.body.style.backgroundImage = `url(${images[index]})`;
+        index = (index + 1) % images.length; 
     }
-});
+
+    setInterval(changeBackground, 5000); 
+    changeBackground();
 </script>
 
 <?php
