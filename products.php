@@ -32,7 +32,7 @@ $conn->close();
     <link rel="stylesheet" href="projekti.css">
 </head>
 <body style="background-image: url(backgroundp.jpg);">
-    <button class="back"><a href="Drenica-GunShop.html">Home</a></button>
+    <button class="back"><a href="index.php">Home</a></button>
     
     <?php foreach ($products as $category => $items): ?>
         <section class="products">
