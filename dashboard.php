@@ -50,7 +50,7 @@ $page->renderHeader();
             <img src="drenica.jpg" alt="Drenica GunShop Logo" class="logo">
         </div>
         <nav class="nav">
-            <a href="Projekti.html">Home</a>
+            <a href="#">Home</a>
             <a href="products2.php">Products</a>
             <a href="About-Us.html">About Us</a>
             <a href="Contact-Us.html">Contact</a>
