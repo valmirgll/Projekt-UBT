@@ -54,7 +54,7 @@ $page->renderHeader();
             <a href="products.php">Products</a>
             <a href="About-Us.html">About Us</a>
             <a href="Contact-Us.html">Contact</a>
-            <a href="Login-form.html">Login <img src="login1.png" style="height: 20px;"></a>
+            <a href="Krijimi i Login-form.php">Login <img src="login1.png" style="height: 20px;"></a>
         </nav>
     </div>
 </header>
