@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } elseif ($result === "user") {
         $_SESSION['user_logged_in'] = true;
-        header("Location: user.php");
+        header("Location: dashboard.php");
         exit;
     } else {
         $login_error = "Invalid login credentials";
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <form action="login.php" method="POST">
-        <button class="back"><a href="Drenica-GunShop.html">Home</a></button>
+        <button class="back"><a href="index.php">Home</a></button>
         <section class="wrapper">
             <h2>Login Form</h2>
             <div class="input-field">
