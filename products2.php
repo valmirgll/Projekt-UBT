@@ -61,5 +61,49 @@ $conn->close();
             </div>
         </section>
     <?php endforeach; ?>
+
+    <abbr title="Go to top button">
+        <div class = "gotopbtn"><a href="#top">Top</a></div>
+    </abbr>
+
+    <style>
+        .gotopbtn {
+            width: 60px;
+            height: 60px;
+            border: none;
+            position: fixed;
+            bottom: 50px;
+            right: 30px;
+            display: none;
+            background-color: orange;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: center;         
+        }
+
+        .gotopbtn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .gotopbtn-special {
+            display: flex;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script>
+        const gotopbtn = document.querySelector('.gotopbtn');
+        window.onscroll = function () {
+            if(document.body.scroll > 200 || document.documentElement.scrollTop > 200){
+                gotopbtn.classList.add('gotopbtn-special');
+            }else{
+                gotopbtn.classList.remove('gotopbtn-special');
+                
+            }
+        }
+    </script>
 </body>
 </html>
