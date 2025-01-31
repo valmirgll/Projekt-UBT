@@ -1,66 +1,113 @@
 <?php
 session_start();
-
 include_once "db.php";
-$db = new Database();
-$conn = $db->conn;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['add_product'])) {
-        
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $category = $_POST['category'];
-        $image = $_POST['image'];
+class ProductManager {
+    private $conn;
 
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function addProduct($name, $description, $price, $category, $image) {
         $sql = "INSERT INTO products (name, description, price, category, image) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssiss", $name, $description, $price, $category, $image);
         $stmt->execute();
-    } elseif (isset($_POST['delete_product'])) {
-        
-        $id = $_POST['id'];
+    }
+
+    public function deleteProduct($id) {
         $sql = "DELETE FROM products WHERE id=?";
-        $stmt = $conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
-    } elseif (isset($_POST['edit_product'])) {
-        
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $category = $_POST['category'];
-        $image = $_POST['image'];
+    }
 
+    public function editProduct($id, $name, $description, $price, $category, $image) {
         $sql = "UPDATE products SET name=?, description=?, price=?, category=?, image=? WHERE id=?";
-        $stmt->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("ssissi", $name, $description, $price, $category, $image, $id);
         $stmt->execute();
     }
-}
 
+    public function getAllProducts() {
+        $sql = "SELECT * FROM products";
+        $result = $this->conn->query($sql);
+        $products = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $products[] = $row;
+            }
+        }
+        return $products;
+    }
 
-$sql = "SELECT * FROM products";
-$result = $conn->query($sql);
-$products = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $products[] = $row;
+    public function getAllOrders() {
+        $sql = "SELECT orders.id, orders.quantity, products.name, products.price, users.name 
+                FROM orders 
+                INNER JOIN products ON orders.product_id = products.id 
+                INNER JOIN users ON orders.user_id = users.id";
+        $result = $this->conn->query($sql);
+        $orders = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $orders[] = $row;
+            }
+        }
+        return $orders;
     }
 }
 
+class MessageManager {
+    private $conn;
 
-$sql = "SELECT * FROM messages";
-$result = $conn->query($sql);
-$messages = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $messages[] = $row;
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function getAllMessages() {
+        $sql = "SELECT * FROM messages";
+        $result = $this->conn->query($sql);
+        $messages = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $messages[] = $row;
+            }
+        }
+        return $messages;
     }
 }
 
+$db = new Database();
+$conn = $db->conn;
+$productManager = new ProductManager($conn);
+$messageManager = new MessageManager($conn);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['add_product'])) {
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $category = $_POST['category'];
+        $image = $_POST['image'];
+        $productManager->addProduct($name, $description, $price, $category, $image);
+    } elseif (isset($_POST['delete_product'])) {
+        $id = $_POST['id'];
+        $productManager->deleteProduct($id);
+    } elseif (isset($_POST['edit_product'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $category = $_POST['category'];
+        $image = $_POST['image'];
+        $productManager->editProduct($id, $name, $description, $price, $category, $image);
+    }
+}
+
+$products = $productManager->getAllProducts();
+$messages = $messageManager->getAllMessages();
+$orders = $productManager->getAllOrders();
 $conn->close();
 ?>
 
@@ -127,6 +174,23 @@ $conn->close();
                 <?php endforeach; ?>
             <?php else: ?>
                 <p>No messages found.</p>
+            <?php endif; ?>
+        </section>
+
+        <section>
+            <h2>View Orders</h2>
+            <?php if (count($orders) > 0): ?>
+                <?php foreach ($orders as $order): ?>
+                    <div class="order">
+                        <h3>Order ID: <?= htmlspecialchars($order['id']) ?></h3>
+                        <p>Purchased by: <?= htmlspecialchars($order['name']) ?></p>
+                        <p>Quantity: <?= htmlspecialchars($order['quantity']) ?></p>
+                        <p>Price: $<?= htmlspecialchars($order['price']) ?></p>
+                        
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No orders found.</p>
             <?php endif; ?>
         </section>
     </div>
