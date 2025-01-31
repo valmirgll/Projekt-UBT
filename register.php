@@ -14,7 +14,7 @@ class User {
         $stmt->bind_param("ssss", $name, $surname, $email, $hashedPassword);
 
         if ($stmt->execute()) {
-            return "Registration successful! You can now <a href='Krijimi i Login-form.php'>log in</a>.";
+            header("Location: Krijimi i Login-form.php");
         } else {
             return "Error: " . $stmt->error;
         }
@@ -22,6 +22,9 @@ class User {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    var_dump($_POST);
+
     $name = trim($_POST['name']);
     $surname = trim($_POST['surname']);
     $email = trim($_POST['email']);
