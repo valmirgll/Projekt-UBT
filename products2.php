@@ -54,7 +54,7 @@ $conn->close();
                         <span>$<?= htmlspecialchars($product['price']) ?></span>
                         <form method="POST" action="">
                             <input type="hidden" name="product_id" value="<?= htmlspecialchars($product['id']) ?>">
-                            <button type="submit" name="add_to_cart">Add to Cart</button>
+                            <button type="submit" name="add_to_cart" style = "width: 100px; background-color: orange; border: none; height: 40px">Add to Cart</button>
                         </form>
                     </div>
                 <?php endforeach; ?>
